@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidBindingCustomView</string>
+    <string name="right">right</string>
+</resources>
