@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
     >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.toong.androidbindingcustomview.MainViewModel"
+            />
+    </data>
+
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -19,6 +28,11 @@
             app:stringValue="@{@string/app_name}"
             />
 
+        <include
+            layout="@layout/loading_view"
+            bind:text='@{"AABCDEFGH"}'
+            app:visibility="@{true}"
+            />
 
 
     </LinearLayout>
