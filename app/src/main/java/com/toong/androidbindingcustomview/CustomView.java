@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ public class CustomView extends LinearLayout {
 
     private ImageView imgImage;
     private TextView tvText;
+    private OnCustomViewListener onCustomViewListener;
 
     public CustomView(Context context) {
         this(context, null);
@@ -45,15 +47,32 @@ public class CustomView extends LinearLayout {
             imgImage.setBackground(drawable);
         }
         setIb_text(text);
+
+        imgImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCustomViewListener.onCustomViewListenerMethod(1);
+            }
+        });
     }
 
-    public void setIbText(String text){
+    public void setIbText(String text) {
         tvText.setText(text);
     }
 
-//    @BindingAdapter("setIb_text"
-    public void setIb_text(String text){
+    //    @BindingAdapter("setIb_text"
+    public void setIb_text(String text) {
         tvText.setText(text);
     }
 
+
+    public void setOnCustomViewListener(OnCustomViewListener onCustomViewListener) {
+        this.onCustomViewListener = onCustomViewListener;
+    }
+
+    public interface OnCustomViewListener {
+
+        void onCustomViewListenerMethod(int aNumber);
+
+    }
 }

@@ -17,11 +17,6 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
         <include
             layout="@layout/custom_view"
             app:foo="@{1}"
@@ -30,8 +25,16 @@
 
         <include
             layout="@layout/loading_view"
-            bind:text='@{"AABCDEFGH"}'
             app:visibility="@{true}"
+            bind:text='@{"AABCDEFGH"}'
+            />
+
+
+        <com.toong.androidbindingcustomview.CustomView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image="@mipmap/ic_launcher"
+            app:onCustomViewListener="@{viewModel.viewModelListenerMethod}"
             />
 
 
